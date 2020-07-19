@@ -31,7 +31,7 @@
                     if ($_SESSION["Perfil"]=="1"){
                         // ver las postulaciones con el ID del usuario
                         echo ("<li><a href='work_in_progress.php'>Revisar mis consultas</a></li>");
-                        echo ("<li><a href='work_in_progress.php'>Revisar mis postulaciones</a></li>");
+                        echo ("<li><a href='mis_postulaciones.php'>Revisar mis postulaciones</a></li>");
 
                     // // opciones del AND (Autirodidad Nacional Designada)
                     // } elseif ($_SESSION["Perfil"]=="2"){

@@ -30,7 +30,7 @@
         <?php
 
     $cod_concurso=$_GET['cod_concurso'];
-    $usuario=76819482; //sale de la variable de sesion
+    $usuario=$_SESSION["ID"]; //sale de la variable de sesion
     $nombre_concurso=$_GET['nombre_concurso'];
 
 
@@ -46,7 +46,7 @@
     echo "	</tr>";
 
     $enlace=mysqli_connect("localhost","root","","viveamazonas");
-    $sentencia="select a.cod_postulacion,a.nombre_proyecto,sum(b.calificacion),a.cod_postulante from proyectos a inner join calificacion_criterios b on b.cod_postulacion=a.cod_postulacion where b.cod_criterio in (9,10,11,12,13) and a.cod_concurso='$cod_concurso' ;";
+    $sentencia="select a.cod_postulacion,a.nombre_proyecto,sum(b.calificacion),a.cod_postulante from proyectos a inner join calificacion_criterios b on b.cod_postulacion=a.cod_postulacion where b.cod_criterio in (9,10,11,12,13) and a.cod_concurso='$cod_concurso' group by a.cod_postulacion,a.nombre_proyecto,a.cod_postulacion ;";
     $resultado =mysqli_query($enlace,$sentencia);
     $numFilas = mysqli_num_rows($resultado);
 

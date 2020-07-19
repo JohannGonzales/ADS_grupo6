@@ -114,7 +114,9 @@
           echo "Se dan los siguientes casos:";
           echo "<br>";
           echo "1. No hay proyectos que hayan llegado por entero a la etapa 4";
+          echo "<br>";
           echo "2. Hay proyectos que han llegado a la etapa 4 pero aún quedan por evaluar los restantes del concurso";
+          echo "<br>";
           echo "Nota: recordar que la elección de la etapa 4 sólo se dará cuando se tengan e resultado de todos los proyectos de un concurso hasta su llegada a la etapa 4 o rechazo en alguna etapa previa";
         }
 

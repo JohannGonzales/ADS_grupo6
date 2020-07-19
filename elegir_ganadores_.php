@@ -11,7 +11,7 @@
     $cod_concurso=$_POST['cod_concurso'];
 
     $enlace=mysqli_connect("localhost","root","","viveamazonas");
-    $sentencia="select a.cod_postulacion,a.nombre_proyecto,sum(b.calificacion),a.cod_postulante from proyectos a inner join calificacion_criterios b on b.cod_postulacion=a.cod_postulacion where b.cod_criterio in (9,10,11,12,13) and a.cod_concurso='$cod_concurso';";
+    $sentencia="select a.cod_postulacion,a.nombre_proyecto,sum(b.calificacion),a.cod_postulante from proyectos a inner join calificacion_criterios b on b.cod_postulacion=a.cod_postulacion where b.cod_criterio in (9,10,11,12,13) and a.cod_concurso='$cod_concurso' group by a.cod_postulacion,a.nombre_proyecto,a.cod_postulacion;";
     $resultado =mysqli_query($enlace,$sentencia);
     $numFilas=mysqli_num_rows($resultado);
 
@@ -28,7 +28,7 @@
         $sentencia2="update calificacion_criterios set calificacion=2 where cod_criterio='$registro[0]'; ";
         mysqli_query($enlace,$sentencia2);
 
-        header('location:etapa1.php');
+
 
 
 
@@ -42,11 +42,13 @@
         mysqli_query($enlace,$sentencia2);
 
 
-        header('location:etapa1.php');
-
       }
     }
 
+    $sentencia3="update concursos set etapa_concurso=3 where cod_concurso='$cod_concurso' ;";
+    mysqli_query($enlace,$sentencia3);
+
+    header('location:etapa1.php');
 
     ?>
   </body>

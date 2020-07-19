@@ -154,6 +154,7 @@ $registro=mysqli_fetch_row($resultado);
 
     }
 
+
   }
 
 echo "</table>";

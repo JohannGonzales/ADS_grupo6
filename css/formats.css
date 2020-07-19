@@ -1,0 +1,71 @@
+.form-container {
+    text-align: right;
+    width: 70%;
+    /* este color es el teal del w3 */
+    /* background-color: #009688; */
+    background-color: #79d647;
+    padding: 20px;
+
+    float: left;
+    margin-left:15%
+    /* opacity:0.80; */
+}
+
+
+.login-container {
+    text-align: right;
+    width: 50%;
+    /* este color es el teal del w3 */
+    /* background-color: #009688; */
+    background-color: #79d647;
+    padding: 20px;
+    float: left;
+    margin-left: 25%;
+    /* opacity:0.80; */
+}
+
+/* arreglar */
+/* arreglar */
+/* arreglar */
+/* arreglar */
+/* arreglar */
+
+.login-background{
+    background-image:url('../img/wallpaper.jpg');
+    background-position:center;
+    background-repeat:no-repeat"
+}
+
+
+.background {
+    background-color: white;
+}
+
+
+@media screen and (max-width:600px) {
+
+    .blank,
+    .form-container {
+        width: 100%;
+        margin-left: 0%
+    }
+    .login-container{
+        width: 100%;
+        margin-left: 0%;
+    }
+}
+
+.input_button {
+    text-align: center;
+    color: red;
+    background-color: rgb(246, 174, 89);
+    border-color: transparent
+}
+
+.anuncio_postulacion_div {
+    text-align:center;
+    height: 500px;
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgba(179, 242, 124, 0.79);
+}

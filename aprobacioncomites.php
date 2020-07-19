@@ -7,8 +7,8 @@
             <br> <br>
             <form action="aprobcomit.php" method="POST">
             <?php
-                  $enlace=mysqli_connect{"localhost","root","","nombreBD"}
-                  $sentencia="select cod_concurso,nombre_concurso from nombredelatabla;";
+                  $enlace=mysqli_connect{"localhost","root","","viveamazonas"}
+                  $sentencia="select cod_concurso,nombre_concurso,etapa_concurso from concursos;";
                   $resultado=mysqli_query($enlace,$sentencia);
                   $numfilas=mysqli_num_rows($resultado);
 
@@ -20,7 +20,7 @@
                       echo "  <tr>";
                       echo "      <td>cod_concurso</td>";
                       echo "      <td>nombre_concurso</td>";
-
+                      echo "      <td>etapa_concurso</td>";
                       echo "  <tr>";
 
                       for ($i=1; $i <= $numFilas; $i++){
@@ -28,6 +28,7 @@
                           echo "  <tr>";
                           echo "      <td>",$registro[0],"</td>";
                           echo "      <td>",$registro[1],"</td>";
+                          echo "      <td>",$registro[2],"</td>";
                           echo        <td><a href='aprobcomit.php'?cod_concurso=$registro[0]>Aprobar</a><a href='eliminarconvocatoria.php'?cod_concurso=$registro[0]>Eliminar</td>;
                           echo "  </tr>";
                       }

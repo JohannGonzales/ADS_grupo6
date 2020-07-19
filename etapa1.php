@@ -37,13 +37,14 @@
 
 
       $enlace=mysqli_connect("localhost","root","","viveamazonas");
-      $sentencia="SELECT d.num_etapa,d.criterios_etapa,a.cod_postulacion,a.calificacion,b.nombre_proyecto,c.nombre_concurso,d.codigo_criterio FROM calificacion_criterios a inner join proyectos b on b.cod_postulacion=a.cod_postulacion inner join concursos c on c.cod_concurso=b.cod_concurso inner join criterios_eva d on d.codigo_criterio=a.cod_criterio where a.ID_Trabajador=$ID_trabajador;";
+      $sentencia="select d.num_etapa,d.criterios_etapa,a.cod_postulacion,a.calificacion,b.nombre_proyecto,c.nombre_concurso,d.codigo_criterio FROM calificacion_criterios a inner join proyectos b on b.cod_postulacion=a.cod_postulacion inner join concursos c on c.cod_concurso=b.cod_concurso inner join criterios_eva d on d.codigo_criterio=a.cod_criterio where a.ID_Trabajador=$ID_trabajador;";
       $resultado =mysqli_query($enlace,$sentencia);
       $numFilas = mysqli_num_rows($resultado);
 
 
 
       if ($numFilas == 0) {
+        
 				echo "No presenta proyectos por evaluar <br>";
 			}
 

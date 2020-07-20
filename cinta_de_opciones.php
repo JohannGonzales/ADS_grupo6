@@ -76,7 +76,7 @@
             </li>
 
             <!-- Selección de Proyectos -->
-            <li><a href='#'>Selección de Proyectos</a>
+            <li><a href='etapa1.php'>Selección de Proyectos</a>
                 <ul>
                     <?php
 

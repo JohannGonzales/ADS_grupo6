@@ -11,18 +11,15 @@
       $sentencia="select etapa_concurso,cod_concurso, from concursos;";
       mysqli_query($enlace,$sentencia);
 
-if (aprobacion==1) {
-$etapa_concurso
+if ($_GET["aprobacion"]==1) {
 $sentencia="update concursos SET etapa_concurso=$etapa_concurso where cod_concurso='$cod_concurso';";
 
-elseif (aprobacion==0)
-
-$enlace=mysqli_connect{"localhost","root","","viveamazonas"}
+}elseif ($_GET["aprobacion"]==0){
 $sentencia="delete from concursos where cod_concurso='$cod_concurso';";
 mysqli_query($enlace,$sentencia);
+}
 
-
-header ("Location:aprobacioncomites.php");
+header ("Location:aprobacioncomites.php")
       ?>
 
       </body>

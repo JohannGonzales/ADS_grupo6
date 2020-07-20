@@ -83,12 +83,14 @@
                     // opciones del AND (Autirodidad Nacional Designada)
                     if ($_SESSION["Perfil"]=="2"){
                         // registrar convocatoria
-                        echo("<li><a href='etapa1.php'>Aprobación de concursos y comités</a></li>");
+                        echo("<li><a href='etapa1.php'>Aprobación de proyectos y documentos</a></li>");
+                        echo("<li><a href='aprobacioncomites.php'> Aprobación de concursos y comites</a></li>");
 
                         // opciones del DE
                     } elseif ($_SESSION["Perfil"]=="8"){
                         // registrar convocatoria
-                        echo("<li><a href='etapa1.php'> Aprobación de concursos y comités </a></li>");
+                        echo("<li><a href='etapa1.php'> Aprobación de proyectos y documentos</a></li>");
+                        echo("<li><a href='aprobacioncomites.php'> Aprobación de proyectos y documentos</a></li>");
                     }
 
                     ?>

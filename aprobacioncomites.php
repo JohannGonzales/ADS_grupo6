@@ -7,10 +7,10 @@
             <br> <br>
             <form action="aprobcomit.php" method="POST">
             <?php
-                  $enlace=mysqli_connect{"localhost","root","","viveamazonas"}
+                  $enlace=mysqli_connect("localhost","root","","viveamazonas");
                   $sentencia="select cod_concurso,nombre_concurso,etapa_concurso from concursos;";
                   $resultado=mysqli_query($enlace,$sentencia);
-                  $numfilas=mysqli_num_rows($resultado);
+                  $numFilas=mysqli_num_rows($resultado);
 
                   if ($numFilas==0){
                     echo "No existen concursos registrados <br>";
@@ -29,7 +29,7 @@
                           echo "      <td>",$registro[0],"</td>";
                           echo "      <td>",$registro[1],"</td>";
                           echo "      <td>",$registro[2],"</td>";
-                          echo        <td><a href='aprobcomit.php'?cod_concurso=$registro[0]>Aprobar</a><a href='eliminarconvocatoria.php'?cod_concurso=$registro[0]>Eliminar</td>;
+                          echo "      <td><a href='aprobcomit.php?cod_concurso=$registro[0]&aprobacion=1'>Aprobar</a><a href='eliminarconvocatoria.php'?cod_concurso=$registro[0]&aprobacion=0>Eliminar</td>;";
                           echo "  </tr>";
                       }
                       echo "</table>";

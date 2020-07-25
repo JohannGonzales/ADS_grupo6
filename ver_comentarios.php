@@ -26,7 +26,6 @@
 
 <?php
 
-session_start();
 
 $ID_perfil=$_SESSION['Perfil'];//extraerlo de variable la sesion;
 $ID_usuario=$_SESSION['ID'];

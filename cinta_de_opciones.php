@@ -98,6 +98,25 @@
 
             </li>
 
+            <?php if ($_SESSION["MASTER"]==1){ ?>
+              <li><a href='#'>Perfil Maestro</a>
+                  <ul>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=1'>1. Postulante</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=2'>2. AND</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=3'>3. CE</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=4'>4. DIGE</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=5'>5. DAF</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=6'>6. DIME</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=7'>7. Administrador</a></li>
+                          <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=8'>8. DE</a></li>
+                  </ul>
+
+            <?php
+            } ?>
+
+            </li>
+
+
             <li><a href='logout.php'>Salir del Sistema</a></li>
 
         </ul>

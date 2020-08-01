@@ -18,8 +18,15 @@
 			else{
 				include("cinta_de_opciones.php");
 			}
+
 			$cod_concurso = $_GET["cod_concurso"];
 
+			$enlace = mysqli_connect("localhost","root","","viveamazonas");
+			$sentencia = "SELECT count(*) from proyectos where cod_concurso='$cod_concurso'; ";
+			$resultado =mysqli_query($enlace,$sentencia);
+			$registro = mysqli_fetch_row($resultado);
+			$cod = $registro[0] +1;
+			$cod_postulacion = $cod_concurso."-".$cod ;
 		?>
 
 		<br>
@@ -29,7 +36,7 @@
 		<br><br>
 
 
-		<form action="mostrarpostulante.php" method="POST" enctype="multipart/form-data">
+		<form action="mostrarpostulante.php?cod_concurso=<?php echo $cod_concurso; ?>&cod_postulacion=<?php echo $cod_postulacion; ?>" method="POST" enctype="multipart/form-data">
 			<U><b>Información de postulante</b></U>
 			<br><br>
 			Código de postulante: <?php echo $_SESSION["ID"] ;?> <br><br>
@@ -44,15 +51,6 @@
 			<br><br>
 
 
-			<!-- LOGICA PARA CODIGO DE POSTULACION -->
-			<?php
-			$enlace = mysqli_connect("localhost","root","","viveamazonas");
-			$sentencia = "SELECT count(*) from proyectos where cod_concurso='$cod_concurso'; ";
-			$resultado =mysqli_query($enlace,$sentencia);
-      $registro = mysqli_fetch_row($resultado);
-			$cod = $registro[0] +1;
-			$cod_postulacion = $cod_concurso."-".$cod ;
-			?>
 
 
 			Código de postulación: <?php echo $cod_postulacion; ?> <br> <br>
@@ -69,7 +67,7 @@
 				<table border='1' cellpadding = '5' cellspacing = '2' bordercolor='green'>
 				<tr>
 					<td><p>Expediente</p></td>
-					<td><p><input name="userfile" type="file"></p></td>
+					<td><p><input name="expediente" type="file"></p></td>
 				</tr>
 				<tr>
 

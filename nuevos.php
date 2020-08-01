@@ -5,10 +5,10 @@
 
 <body>
 
-    <div class="w3-container w3-black w3-leftbar w3-border-light-green">
-        <h1 style="">Intranet ViveAmazonas</h1>
-    </div>
-    <?php
+  <div class="w3-container w3-black w3-leftbar w3-border-light-green">
+    <h1 style="">Intranet ViveAmazonas</h1>
+  </div>
+  <?php
         session_start(); //inicio de sesión
         if (!isset($_SESSION["ID"])) {
             session_destroy();
@@ -18,17 +18,23 @@
         else {
             include("cinta_de_opciones.php");
         }
+
+        $cod_concurso = $_GET["cod_concurso"];
+
     ?>
 
-    <h1>Asignación de comités</h1>
-    <h2>Comité CTI y CTE</h2>
-    <br> <br>
-    <form action="asigcomites.php" method="POST">
-        <div style="display:inline">
-            <div style="display:inline">
-                <?php
+
+
+  <form action="asigcomites.php?cod_concurso=<?php echo $cod_concurso; ?>" method="POST">
+    <div style="display:inline">
+      <div style="display:inline">
+        <h2> Conformar comité CTI </h2>
+
+        <?php
+
+
                 $enlace=mysqli_connect("localhost","root","","viveamazonas");
-                $sentencia="SELECT ID_Trabajador,count(*) from asignacion_comite where ID_Comite='1' group by ID_Trabajador";
+                $sentencia="SELECT a.ID_Trabajador,b.nombre_trabajador,count(*)from asignacion_comite a inner join trabajadores b on b.ID_Trabajador=a.ID_Trabajador where ID_Comite= 1 group by a.ID_Trabajador ";
                 $resultado=mysqli_query($enlace,$sentencia);
                 $numFilas=mysqli_num_rows($resultado);
 
@@ -38,8 +44,9 @@
                 else{
                     echo "<table border=1>";
                     echo "  <tr>";
-                    echo "      <td>id_trabajador</td>";
-                    echo "      <td>count*</td>";
+                    echo "      <td>ID_trabajador</td>";
+                    echo "      <td>Nombre</td>";
+                    echo "      <td>Carga de trabajo</td>";
 
                     echo "  <tr>";
 
@@ -48,33 +55,30 @@
                     echo "  <tr>";
                     echo "      <td>",$registro[0],"</td>";
                     echo "      <td>",$registro[1],"</td>";
+                    echo "      <td>",$registro[2],"</td>";
                     echo "  </tr>";
                 }
                 echo "</table>";
                     }
                 ?>
-            </div>
+      </div>
 
-            <div style="display:inline">
-                <h2> Conformar comité CTI </h2>
+      <div style="display:inline">
+        <br>
+        Integrante 1: <input name="persona1" type="text"><br>
+        Integrante 2: <input name="persona2" type="text"><br>
+        Integrante 3: <input name="persona3" type="text"><br>
+        Integrante 4: <input name="persona4" type="text"><br>
 
-                <p>Persona 1:</p>
-                <input name="persona1" type="text">
-                <p>Persona 2:</p>
-                <input name="persona2" type="text">
-                <p>Persona 3: </p>
-                <input name="persona3" type="text">
-                <p>Persona 4: </p>
-                <input name="persona4" type="text">
+      </div>
+      <br>
 
-            </div>
-            <br>
+      <div>
+        <h2>Conformar comité CTE</h2>
 
-            <div>
-
-                <?php
+        <?php
                     $enlace=mysqli_connect("localhost","root","","viveamazonas");
-                    $sentencia="SELECT id_trabajador,count(*) from asignacion_comite where ID_Comite=2 group by ID_Trabajador";
+                    $sentencia="SELECT a.ID_Trabajador,b.nombre_trabajador,count(*)from asignacion_comite a inner join trabajadores b on b.ID_Trabajador=a.ID_Trabajador where ID_Comite='2' group by a.ID_Trabajador";
                     $resultado=mysqli_query($enlace,$sentencia);
                     $numFilas=mysqli_num_rows($resultado);
 
@@ -84,8 +88,9 @@
                     else{
                         echo "<table border=1>";
                         echo "  <tr>";
-                        echo "      <td>id_trabajador</td>";
-                        echo "      <td>count*</td>";
+                        echo "      <td>ID_trabajador</td>";
+                        echo "      <td>Nombre</td>";
+                        echo "      <td>Carga de trabajo</td>";
                         echo "  <tr>";
 
                         for ($i=1; $i <= $numFilas; $i++){
@@ -93,31 +98,26 @@
                         echo "  <tr>";
                             echo "      <td>",$registro[0],"</td>";
                             echo "      <td>",$registro[1],"</td>";
+                            echo "      <td>",$registro[2],"</td>";
                             echo "  </tr>";
                         }
                         echo "</table>";
                     }
                 ?>
-            </div>
+      </div>
 
-            <div>
-                Conformar comité CTE
-                <p>Persona 1:</p>
-                <input name="persona21" type="text">
-                <p>Persona 2:</p>
-                <input name="persona22" type="text">
-                <p>Persona 3: </p>
-                <input name="persona23" type="text">
-                <p>Persona 4: </p>
-                <input name="persona24" type="text">
-                <p>Persona 5: </p>
-                <input name="persona25" type="text">
+      <div>
+        <br>
+        Integrante 1: <input name="persona21" type="text"><br>
+        Integrante 2: <input name="persona22" type="text"><br>
+        Integrante 3: <input name="persona23" type="text"><br>
+        Integrante 4: <input name="persona24" type="text"><br>
+        Integrante 5: <input name="persona25" type="text"><br>
+      </div>
 
-            </div>
-
-        </div>
-        <input type="submit">
-    </form>
+    </div>
+    <br><br> <input value ="Crear convocatoria pendiente de aprobación" type="submit">
+  </form>
 </body>
 
 </html>

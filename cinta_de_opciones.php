@@ -45,11 +45,18 @@
 
 
                     // // opciones del DIGE
-                    // } elseif ($_SESSION["Perfil"]=="4"){
-                    //     // registrar convocatoria
-                    //     echo("<li><a href='work_in_progress.php'> #####################</a></li>");
-                    //
-                    // // opciones del DAF
+                    } elseif ($_SESSION["Perfil"]=="4"){
+
+                      $enlace=mysqli_connect("localhost","root","","viveamazonas");
+                      $sentencia="SELECT ID_trabajador FROM trabajadores where area=4 and cargo_trabajador='Oficial de proyectos'";
+                      $resultado=mysqli_query($enlace,$sentencia);
+                      $registro=mysqli_fetch_row($resultado);
+
+                        if ($_SESSION["ID"]==$registro[0]) {
+                          echo("<li><a href='registrar_concursos.php'> Registro de concursos </a></li>");
+                        }
+
+                    // opciones del DAF
                     // } elseif ($_SESSION["Perfil"]=="5"){
                     //     // registrar convocatoria
                     //     echo("<li><a href='work_in_progress.php'> ################ </a></li>");

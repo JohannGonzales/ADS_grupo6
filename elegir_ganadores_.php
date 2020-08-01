@@ -25,20 +25,18 @@
         $sentencia1="update proyectos set Estado_postulacion='Seleccionado' where cod_postulacion='$registro[0]';";
         mysqli_query($enlace,$sentencia1);
 
-        $sentencia2="update calificacion_criterios set calificacion=2 where cod_criterio='$registro[0]'; ";
+        $sentencia2="update calificacion_criterios set calificacion=2 where cod_postulacion='$registro[0]' and cod_criterio=14; ";
         mysqli_query($enlace,$sentencia2);
 
 
-
-
-
       }
-      else {
+      elseif (!isset($_POST[${"proyecto".$i}])) {
+
 
         $sentencia1="update proyectos set Estado_postulacion='No Seleccionado' where cod_postulacion='$registro[0]';";
         mysqli_query($enlace,$sentencia1);
 
-        $sentencia2="update calificacion_criterios set calificacion=1 where cod_criterio='$registro[0]'; ";
+        $sentencia2="update calificacion_criterios set calificacion=1 where cod_postulacion='$registro[0]' and cod_criterio=14; ";
         mysqli_query($enlace,$sentencia2);
 
 

@@ -33,6 +33,13 @@
             $_SESSION["ID"] = $loginUser_toTest;
             $_SESSION["Perfil"] = $registro[2]; // aqui va el ID DEL PERFIL
 
+            // creo un perfin maestro para poder mostrar los features del sistema frente al jp
+            if ($_SESSION["ID"] == "72310783"){
+              $_SESSION["MASTER"] =1;
+            } else{
+              $_SESSION["MASTER"] =0;
+            }
+
             // Redirecciona al menú principal
             header("location: main_menu.php");
         }

@@ -1,6 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+
+    <div class="w3-container w3-black w3-leftbar w3-border-light-green">
+        <h1 style="">Intranet ViveAmazonas</h1>
+    </div>
+
+    <?php
+              session_start(); //inicio de sesión
+              if (!isset($_SESSION["ID"])){
+                  session_destroy();
+                  echo "<br><br> <font color='red'>Intento de acceso sin autorización!!!</font>";
+                  exit;
+              }
+              else {
+                  include("cinta_de_opciones.php");
+              }
+          ?>
+
 <?php
 
-session_start();
 
 $ID_perfil=$_SESSION['Perfil'];//extraerlo de variable la sesion;
 $ID_usuario=$_SESSION['ID'];
@@ -175,3 +200,7 @@ if ($registro2[0]=='No Seleccionado') {
 }
 
 ?>
+
+</body>
+
+</html>

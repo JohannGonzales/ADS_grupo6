@@ -27,9 +27,11 @@
             else {
                 include("cinta_de_opciones.php");
             }
-        ?>
 
-        ESPACIO PARA ANUNCIOS
+        print("Perfil " );
+        print $_SESSION['Perfil'];
+
+        ?>
 </body>
 
 </html>

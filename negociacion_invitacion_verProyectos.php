@@ -36,13 +36,13 @@
   </div> -->
 
   <table border=1>
-		<?php
+    <?php
 			// $loginUser_toTest = $_POST["loginUser"];
 			// $loginPassword_toTest = $_POST["loginPassword"];
 			// $es_admin = $_POST["es_administrador"];
-
+      $cod_concurso = $_GET["concurso_ID"];
 			$enlace = mysqli_connect("localhost","root","","viveamazonas");
-			$query = "SELECT cod_concurso, nombre_concurso FROM `concursos` WHERE etapa_concurso = 3 ";
+			$query = "SELECT cod_postulacion, cod_postulante FROM `proyectos` WHERE cod_concurso = '$cod_concurso' AND etapa_postulacion = 4 ";
 			$resultado = mysqli_query($enlace,$query);
 			$num_rows = mysqli_num_rows($resultado);
 
@@ -52,8 +52,10 @@
 			else {
 				echo "<table border=1>";
 				echo "	<tr>";
-				echo "		<td>ID_Concurso</td>";
-				echo "		<td>Nombre</td>";
+				echo "		<td>Código Postulacion</td>";
+				echo "		<td>Código Postulante</td>";
+				echo "		<td>FECHA DE NEGOCIACIÓN</td>";
+				echo "		<td>CORREO</td>";
 				echo "		<td>Opciones</td>";
 				echo "	</tr>";
 
@@ -61,12 +63,16 @@
 				for ($i=1; $i <= $num_rows; $i++){
 					/*Esta función permite obtener un registro (fila) del resultado de un query*/
 					$registro = mysqli_fetch_row($resultado);
+          echo "<form action='negociacion_invitacion_verProyectos_.php?cod_concurso=$cod_concurso&cod_proyecto=$registro[0]' method='POST' ><br>";
 
 					echo "	<tr>";
 					echo "		<td>",$registro[0],"</td>";
 					echo "		<td>",$registro[1],"</td>";
-					echo "		<td><a href='negociacion_invitacion_verProyectos.php?concurso_ID=$registro[0]'>Ver proyectos</a> </td>";
+					echo "		<td><input name='fecha_negociacion' type='text' ></td>";
+					echo "		<td><input name='correo' type='text' ></td>";
+					echo "		<td><input type='submit' value='Enviar invitacion'> </td>";
 					echo "	</tr>";
+					echo "	</form>";
 				}
 				echo "</table>";
 			}

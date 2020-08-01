@@ -47,11 +47,6 @@
     <p>Anuncio de concurso: </p>
     <input name="anuncio_concurso" type="file">
 
-    <!-- <p>Comité CTI: </p> -->
-    <!-- <input name="idcomitecti" type="text"> ojito}
-
-        <p>Comité CTE: </p>
-        <input name="idcomitecte" type="text"> ojito -->
     <br><br>
     <input type="submit" value="Grabar">
   </form>

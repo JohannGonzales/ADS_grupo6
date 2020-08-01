@@ -25,7 +25,7 @@
                 <!-- OPCION CONVOCATORIA DE PROYECTOS -->
                 <ul>
                     <!-- Revisar la lista de convocatorias, todos pueden hacer esto -->
-                    <li><a href='convocatoria_main.php'>Revisar Convocatorias</a></li>
+                    <li><a href='convocatoria_main.php'>Revisar Convocatorias públicas</a></li>
 
                     <?php
                     if ($_SESSION["Perfil"]=="1"){
@@ -53,28 +53,14 @@
                       $registro=mysqli_fetch_row($resultado);
 
                         if ($_SESSION["ID"]==$registro[0]) {
-                          echo("<li><a href='registrar_concursos.php'> Registro de concursos </a></li>");
+                          echo("<li><a href='listaconcursos.php'> Concursos pendientes de aprobación </a></li>");
+                          echo("<li><a href='registrar_concursos.php'> Registrar nuevo concurso </a></li>");
                         }
 
-                    // opciones del DAF
-                    // } elseif ($_SESSION["Perfil"]=="5"){
-                    //     // registrar convocatoria
-                    //     echo("<li><a href='work_in_progress.php'> ################ </a></li>");
-                    //
-                    // // opciones del DIME
-                    // } elseif ($_SESSION["Perfil"]=="6"){
-                    //     // registrar convocatoria
-                    //     echo("<li><a href='work_in_progress.php'> ############## </a></li>");
-                    //
-                    // // opciones del Administrador
-                    // } elseif ($_SESSION["Perfil"]=="7"){
-                    //     // registrar convocatoria
-                    //     echo("<li><a href='work_in_progress.php'> ############## </a></li>");
-                    //
                     // // opciones del DE
-                    // } elseif ($_SESSION["Perfil"]=="8"){
-                    //     // registrar convocatoria
-                    //     echo("<li><a href='work_in_progress.php'> ############## </a></li>");
+                    } elseif ($_SESSION["Perfil"]=="8"){
+                        // registrar convocatoria
+                          echo("<li><a href='listaconcursos.php'> Aprobar concursos </a></li>");
 
                     }
                     ?>

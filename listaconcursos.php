@@ -22,7 +22,7 @@
 
     <br>
     <br>
-    <h1>Lista de concursos</h1>
+    <h1>Lista de concursos pendientes de aprobación</h1>
     <br> <br>
     <form action="registrar_concursos.php" method="POST">
         <?php

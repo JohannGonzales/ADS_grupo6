@@ -66,7 +66,7 @@ else {
 
 
 <body>
-	<form action="infopostulante.php?cod_postulacion=<?php echo $codpostulacion; ?>&cod_concurso=<?php echo $cod_concurso; ?>" method="POST" enctype="multipart/form-data">
+	<form action="infopostulante.php?cod_postulacion=<?php echo $codpostulacion; ?>&cod_concurso=<?php echo $codconcurso; ?>" method="POST" enctype="multipart/form-data">
 		<?php
 
 						echo "Código de postulante: ";

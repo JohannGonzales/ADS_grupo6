@@ -16,9 +16,13 @@
 
   $sentencia2 ="INSERT INTO proyectos (cod_postulacion,cod_postulante,cod_concurso,nombre_proyecto,fecha_postulacion)VALUES('$codpostulacion','{$_SESSION["ID"]}','$codconcurso','$nomproyecto','$fechpostulacion');";
 
-	mysqli_query($enlace,$sentencia);
+	$sentencia3 ="INSERT INTO calificacion_criterios (cod_criterio,cod_postulacion,calificacion,ID_Trabajador) values (1,'$codpostulacion',0,76984225);";
 
+
+
+	mysqli_query($enlace,$sentencia);
 	mysqli_query($enlace,$sentencia2);
+	mysqli_query($enlace,$sentencia3);
 
 	header("Location:mis_postulaciones.php");
 ?>

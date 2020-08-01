@@ -37,7 +37,7 @@
 			// $es_admin = $_POST["es_administrador"];
 
 			$enlace = mysqli_connect("localhost","root","","viveamazonas");
-			$query = "SELECT cod_concurso, nombre_concurso, fecha_postulacion_inicio, fecha_postulacion_fin FROM `concursos` ";
+			$query = "SELECT cod_concurso, nombre_concurso, fecha_postulacion_inicio, fecha_postulacion_fin FROM `concursos` WHERE  etapa_concurso = 1 ";
 			$resultado = mysqli_query($enlace,$query);
 			$num_rows = mysqli_num_rows($resultado);
 

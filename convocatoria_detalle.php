@@ -59,7 +59,7 @@
 					<button class="w3-btn w3-ripple w3-grey" type="submit" >Realizar<br>consulta</button>
 				</form>
 
-				<form class="" action="postular.php" method="post">
+				<form class="" action="postular.php?cod_concurso=<?php echo $concurso_ID; ?>" method="post">
 					<button class="w3-btn w3-ripple w3-red" type="submit">POSTULAR</button>
 				</form>
 

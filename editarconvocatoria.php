@@ -27,19 +27,17 @@
      $sentencia="select * from concursos where cod_concurso='$cod_concurso';";
      $resultado=mysqli_query($enlace,$sentencia);
      $fila=mysqli_fetch_row($resultado);
-     echo "<form action='editconvocatoria.php' method='POST'><br>";
-     echo "Código del concurso:<br> <input name='cod_concurso' type='text' value='$fila[0]'><br>";
+     echo "<form action='editconvocatoria.php?cod_concurso=$cod_concurso' method='POST' enctype='multipart/form-data'><br>";
      echo "Nombre del concurso:<br> <input name='nombre_concurso' type='text' value='$fila[1]'><br>";
-     echo "Fecha de inicio de postulación:<br> <input name='fecha_postulacion_inicio' type='text' value='$fila[2]'><br>";
-     echo "Fecha de fin de postulación:<br> <input name='fecha_postulacion_fin' type='text' value='$fila[3]'><br>";
-     echo "Bases del concurso:<br> <input name='bases_concurso' type='text' value='$fila[4]'><br>";
-     echo "Anuncio de convocatoria:<br> <input name='anuncio_concurso' type='text' value='$fila[5]'><br>";
-     echo "Monto a financiar:<br> <input name='tipo_monto' type='text' value='$fila[6]'><br>";
-     // echo "Comité CTI:<input name='id_comite_cti' type='text' value='$fila[7]'>"; este no se si hay en sql
-     // echo "Comité CTE:<input name='id_comite_cte' type='text' value='$fila[8]'>"; x2
-     echo "<input type='submit' value='Grabar'>";
-     echo "</form>";
-    ?>
+     ?>
+
+     <p>Bases del concurso: </p>
+     <input name="bases_concurso" type="file">
+
+     <p>Anuncio de concurso: </p>
+     <input name="anuncio_concurso" type="file">
+     <input type='submit' value='Grabar'>
+     </form>
 </body>
 
 </html>

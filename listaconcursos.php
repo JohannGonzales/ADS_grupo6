@@ -27,7 +27,7 @@
     <form action="registrar_concursos.php" method="POST">
         <?php
                   $enlace=mysqli_connect("localhost","root","","viveamazonas")  ;
-                  $sentencia="SELECT cod_concurso, nombre_concurso FROM concursos";
+                  $sentencia="SELECT cod_concurso, nombre_concurso,bases_concurso FROM concursos WHERE etapa_concurso = 0";
                   $resultado=mysqli_query($enlace,$sentencia);
                   $numFilas=mysqli_num_rows($resultado);
 
@@ -39,6 +39,9 @@
                       echo "  <tr>";
                       echo "      <td>cod_concurso</td>";
                       echo "      <td>nombre_concurso</td>";
+                      echo "      <td>estado</td>";
+                      echo "      <td>Bases</td>";
+                      echo "      <td>Anuncio</td>";
 
                       echo "  <tr>";
 
@@ -47,7 +50,16 @@
                           echo "  <tr>";
                           echo "      <td>",$registro[0],"</td>";
                           echo "      <td>",$registro[1],"</td>";
-                          echo "       <td><a href='editarconvocatoria.php?cod_concurso=$registro[0]'>Editar</a>      <a href='eliminarconvocatoria.php?cod_concurso=$registro[0]'>Eliminar</td>";
+                          echo "      <td>",$registro[2],"</td>";
+                          echo "		<td> <a href='doc_vive_amazonas/Concursos/$registro[0]/bases_concurso.pdf' download> Descargar </a> </td>";
+                          echo "		<td> <a href='doc_vive_amazonas/Concursos/$registro[0]/anuncio_concurso.pdf' download> Descargar </a> </td>";
+
+                          if ($_SESSION["Perfil"]==4){
+                            echo "       <td><a href='editarconvocatoria.php?cod_concurso=$registro[0]'>Editar</a>      <a href='eliminarconvocatoria.php?cod_concurso=$registro[0]'>Eliminar</a></td>";
+                          } elseif ($_SESSION["Perfil"]==8) {
+                            echo "       <td><a href='listaconcursos_aprobar.php?cod_concurso=$registro[0]&aprobar=1'>Aprobar</a>      <a href='listaconcursos_aprobar.php?cod_concurso=$registro[0]&aprobar=0'>Desaprobar</a></td>";
+                          }
+
                           echo "  </tr>";
                       }
                       echo "</table>";

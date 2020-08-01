@@ -91,7 +91,11 @@
 
             </li>
 
-            <?php if ($_SESSION["MASTER"]==1){ ?>
+            <?php
+            if ($_SESSION["Perfil"]=="8" || $_SESSION["Perfil"]=="4"){
+            echo"<li><a href='negociacion_main.php'>Negociación</a></li>";
+            }
+            if ($_SESSION["MASTER"]==1){ ?>
               <li><a href='#'>Perfil Maestro</a>
                   <ul>
                           <li><a href='cinta_de_opciones_MasterProfile_.php?chPerfil=1'>1. Postulante</a></li>

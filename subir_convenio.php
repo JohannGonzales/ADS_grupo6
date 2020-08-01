@@ -44,7 +44,7 @@
   $permitidos =  array("application/pdf");
   $limite_kb=100000;
   $ruta='doc_vive_amazonas/Postulaciones/'.$cod_postulacion.'/';
-  $nombre_archivo = $ruta.$_FILES['convenio']['name'];
+  $nombre_archivo = $ruta.'convenio.pdf';
   //datos de donde se almaceran
   if ($error_archivo>0) {
     echo "Error al cargar archivo";

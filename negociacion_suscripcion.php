@@ -42,19 +42,20 @@
 			// $es_admin = $_POST["es_administrador"];
 
 			$enlace = mysqli_connect("localhost","root","","viveamazonas");
-			$query = "SELECT cod_concurso, nombre_concurso FROM `concursos` WHERE etapa_concurso = 3 ";
+			$query = "SELECT cod_postulacion, cod_concurso, nombre_proyecto FROM `proyectos` WHERE Estado_postulacion = 'Por suscribir' ";
 			$resultado = mysqli_query($enlace,$query);
 			$num_rows = mysqli_num_rows($resultado);
 
 			if ($num_rows == 0) {
-				echo "No existen concursos con invitaciones pendientes<br>";
+				echo "No existen concursos pendientes de suscripción <br>";
 			}
 			else {
 				echo "<table border=1>";
 				echo "	<tr>";
+				echo "		<td>ID_Proyecto</td>";
 				echo "		<td>ID_Concurso</td>";
-				echo "		<td>Nombre</td>";
-				echo "		<td>Opciones</td>";
+				echo "		<td>Proyecto</td>";
+				echo "		<td>Acta + Lista de verificacion </td>";
 				echo "	</tr>";
 
 				/*Estoy definiendo una iteración*/
@@ -65,7 +66,9 @@
 					echo "	<tr>";
 					echo "		<td>",$registro[0],"</td>";
 					echo "		<td>",$registro[1],"</td>";
-					echo "		<td><a href='negociacion_invitacion_verProyectos.php?concurso_ID=$registro[0]'>Ver proyectos</a> </td>";
+					echo "		<td>",$registro[2],"</td>";
+          echo "		<td> <a href='doc_vive_amazonas/Postulaciones/$registro[0]/convenio.pdf' download> Descargar </a> </td>";
+					echo "		<td><a href='negociacion_suscripcion_validar.php?cod_postulacion=$registro[0]'>Validar</a> </td>";
 					echo "	</tr>";
 				}
 				echo "</table>";

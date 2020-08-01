@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+negoc<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -37,13 +37,16 @@
       <br>
       <br>
 
-      <a href="negociacion_invitacion.php" method="POST">
+      <?php if ($_SESSION["Perfil"]==8) {?>
+        <a href="negociacion_invitacion.php" method="POST">
         <button class="w3-btn w3-ripple w3-black">Invitacion </button>
-      </a>
+        </a>
 
-      <br>
-      <br>
+        <br>
+        <br>
+      <?php  } ?>
 
+      <?php if ($_SESSION["Perfil"]==4) {?>
       <a href="negociacion_negociacion.php" method="GET">
         <button class="w3-btn w3-ripple w3-grey" type="submit">Negociacion</button>
       </a>
@@ -55,6 +58,7 @@
         <button class="w3-btn w3-ripple w3-red" type="submit">Suscripción</button>
       </a>
 
+      <?php  } ?>
     </div>
   </div>
 

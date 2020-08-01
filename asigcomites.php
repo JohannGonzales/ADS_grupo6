@@ -21,20 +21,20 @@
               $enlace=mysqli_connect("localhost","root","","viveamazonas");
               for ($i=1; $i <= 4; $i++) {
                 $id_personal_temp1 =  ${"persona".$i};
-                $sentencia="INSERT INTO asignacion_comite (ID_Trabajador,ID_Comite,codigo_concurso)
- VALUE ($id_personal_temp1 ,1,'{$cod_concurso}'); ";
-                mysqli_query($enlace,$sentencia);
+
+              $sentencia1="INSERT INTO asignacion_comite (ID_Trabajador,ID_Comite,codigo_concurso) VALUES ($id_personal_temp1 ,1,'$cod_concurso'); ";
+              mysqli_query($enlace,$sentencia1);
               }
 
               for ($i=1; $i <= 5; $i++) {
                 $id_personal_temp2 = ${"persona2".$i};
-                $sentencia="INSERT into asignacion_comite (ID_Trabajador,ID_Comite,codigo_concurso)
- VALUE ( $id_personal_temp2,2,'{$cod_concurso}') ;";
-                mysqli_query($enlace,$sentencia);
+
+              $sentencia2="INSERT into asignacion_comite (ID_Trabajador,ID_Comite,codigo_concurso) VALUES ( $id_personal_temp2,2,'$cod_concurso') ;";
+              mysqli_query($enlace,$sentencia2);
               }
 
 
-              // header("Location:listaconcursos.php");
+              header("Location:listaconcursos.php");
           ?>
 </body>
 

@@ -59,7 +59,6 @@
         echo "		<td>Nombre proyecto</td>";
         echo "		<td>Nombre concurso</td>";
         echo "		<td>Expediente</td>";
-        echo "		<td>Declaracion</td>";
         echo "		<td>Accion</td>";
 
 				echo "	</tr>";
@@ -82,8 +81,7 @@
 
           echo "		<td>",$registro[4],"</td>";
           echo "		<td>",$registro[5],"</td>";
-          echo "		<td> <a href='doc_vive_amazonas/$registro[2]/declaracion.pdf' download> Descargar </a> </td>";
-          echo "		<td> <a href='doc_vive_amazonas/$registro[2]/expediente.pdf' download> Descargar </a> </td>";
+          echo "		<td> <a href='doc_vive_amazonas/Postulaciones/$registro[2]/expediente.pdf' download> Descargar </a> </td>";
           echo "		<td> <a href='calificar_etapa.php?cod_postulacion=$registro[2]&cod_criterio=$registro[6]&num_etapa=$registro[0]'> Calificar </a> </td>";
 					echo "	</tr>";
 				}

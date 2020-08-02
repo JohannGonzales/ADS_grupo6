@@ -91,6 +91,7 @@
 
             </li>
 
+            <!-- NEGOCIACION -->
             <?php
             if ($_SESSION["Perfil"]=="8" || $_SESSION["Perfil"]=="4"){
             echo"<li><a href='negociacion_main.php'>Negociación</a></li>";
